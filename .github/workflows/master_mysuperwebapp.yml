@@ -22,7 +22,7 @@ jobs:
         uses: actions/setup-java@v4
         with:
           java-version: '11'
-          distribution: 'microsoft'
+          distribution: 'adopt'
 
       - name: Build with Maven
         run: mvn clean install -f MyWebApp/pom.xml
@@ -51,4 +51,5 @@ jobs:
           slot-name: 'Production'
           package: '*.war'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_D8E3B206CEBE40D6B105B6BA9C353137 }}
+
 
