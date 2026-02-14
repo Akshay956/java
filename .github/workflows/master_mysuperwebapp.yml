@@ -6,7 +6,7 @@ name: Build and deploy WAR app to Azure Web App - MySuperWebApp
 on:
   push:
     branches:
-      - master
+      - main
   workflow_dispatch:
 
 jobs:
@@ -31,7 +31,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: MyWebApp
-          path: '${{ github.workspace }}/target/*.war'
+          path: '${{ github.workspace }}'
 
   deploy:
     runs-on: ubuntu-latest
@@ -51,5 +51,6 @@ jobs:
           slot-name: 'Production'
           package: '*.war'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_D8E3B206CEBE40D6B105B6BA9C353137 }}
+
 
 
